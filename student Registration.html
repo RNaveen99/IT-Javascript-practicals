@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>STUDENT REGISTRATION FORM</title>
+    </head>
+    <body>
+        <h1>
+            STUDENT REGISTRATION FORM
+        </h1>
+        <form>
+            Enter Name: <input id = "n" type="text" placeholder="name"><br>
+            <p style="display: none;" id = "input1"></p>
+            Ener roll no.: <input id = "roll" type="text"><br>
+            <p style="display: none;" id = "input2"></p>
+            Enter Date of Birth <input id = "date" type="text" placeholder="mm/dd/yy"><br>
+            <p style="display: none;" id = "input3"></p>
+            <!-- <input type="button" value="submit" onclick="fun()"> -->
+            <input type="button" value="submit" onclick="fun(event)">
+            <!-- <button onclick="fun()">s  ubmit</button> -->
+        </form>
+
+        <p id = "para"></p>
+
+        <script>
+            // document.querySelector('button').addEventListener('click', (e) => {
+            //     e.preventDefault();
+            // });
+            function fun(e) {
+                // let ok = true;
+                // validation code
+                let isRollValid = true;
+                let isNameValid = true;
+                let isDOBValid  = true;
+                let name = document.getElementById("n").value;
+                let roll = document.getElementById("roll").value;
+                let date = document.getElementById("date").value;
+                let re = /[a-zA-Z]+/;
+                let re2 = /[0-9]{7}/;
+                let re3 = /[0-9]+\/[0-9]+\/[0-9]+/;
+                if (name.match(re) != name)
+                    isNameValid = false;
+                if (roll.match(re2) != roll)
+                    isRollValid = false;
+
+                if (date.match(re3) != date)
+                    isDOBValid = false;
+
+                if (name == "") {
+                    e.preventDefault();
+                    document.getElementById("input1").innerHTML = "name field is empty";
+                    document.getElementById("input1").style.display = "block";
+                }
+                else if (!isNameValid) {
+                    e.preventDefault();
+                    document.getElementById("input1").innerHTML = "name is not an aplphabetical value";
+                    document.getElementById("input1").style.display = "block";
+                }
+                if (roll == "") {
+                    e.preventDefault();
+                    document.getElementById("input2").innerHTML = "roll number field is empty";
+                    document.getElementById("input2").style.display = "block";
+                }
+                else if (!isRollValid) {
+                    e.preventDefault();
+                    document.getElementById("input2").innerHTML = "roll number is not a 7 digit numeric value";
+                    document.getElementById("input2").style.display = "block";
+                }
+
+                
+
+                if (date == "") {
+                    e.preventDefault();
+                    document.getElementById("input3").innerHTML = "date of birth field is empty";
+                    document.getElementById("input3").style.display = "block";
+                }
+
+                else if (!isDOBValid) {
+                    e.preventDefault();
+                    document.getElementById("input3").innerHTML = "date of birth is not in correct format";
+                    document.getElementById("input3").style.display = "block";
+                }
+
+                var d = new Date(date);
+                document.getElementById("para").innerHTML = d;
+                // if(!ok) {
+                    
+                    
+                // }
+                // setTimeout(() => {
+                //     document.forms[0].submit();
+                // }, 2000);
+                // document.getElementById("input1").innerHTML = "How are you";
+                // document.getElementById("input1").style.display = "block";
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SetTimeOut</title>
+    </head>
+
+    <body>
+        <h1 id = "h" style="color: red">I AM RED</h1>
+        <button onclick="fun()">change to green (3 seconds)</button>
+        <script>
+            function fun() {
+                let h = document.getElementById('h');
+                setTimeout(() => {
+                    h.setAttribute('style', 'color: green');
+                    h.innerHTML = "I AM GREEN NOW";
+                }, 3000);
+            }
+        </script>
+    </body>
+</html>

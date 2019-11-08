@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Set interval</title>
+    </head>
+
+    <body>
+        <h1>Hello</h1>
+        <button onclick="fun()">submit</button>
+        <p id  = "par">I am a paragraph</p>
+        <script>
+            function fun() {
+                let i = 1;
+                let par = document.getElementById('par');
+                setInterval(() => {
+                    par.innerHTML = "hello " + i;
+                    i = i + 1;
+                }, 1000);
+            }
+        </script>
+    </body>
+</html>

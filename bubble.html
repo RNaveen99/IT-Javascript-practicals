@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>bubble sort</title>
+    </head>
+    <body>
+        <h1>BUBBLE sort</h1>
+        <form>
+            Enter no. of elements in the array: <input id = "n" type="number"><br>
+            <input type="button" value="submit" onclick="fun()">
+        </form>
+        <p id = "para"></p>
+        <script>
+            function fun() {
+                let f = document.createElement('form');
+
+                let n = Number(document.getElementById('n').value);
+                for (let i = 1; i <= n; i++) {
+                    let sp = document.createElement('span');
+                    let input = document.createElement('input');
+                    input.setAttribute("type", "number");
+                    input.setAttribute('id', `num${i}`);
+                    let brk = document.createElement('br');
+                    sp.innerHTML = "Enter number " + i + ": ";
+                    f.appendChild(sp);
+                    f.appendChild(input);
+                    f.appendChild(brk);
+                }
+                let s = document.createElement('button');
+                s.textContent = "Sort";
+                f.appendChild(s);
+                s.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    let numbers = [];
+                    for (let i = 1; i <= n; i++) {
+                        let temp = Number(document.getElementById(`num${i}`).value);
+                        numbers.push(temp);
+                    }
+                    console.log(numbers);
+                    
+                    console.log(numbers.sort((a, b) => a - b));
+                    let result = document.createElement('p');
+                    numbers.forEach((ele) => {
+                        result.textContent += ele + ', ';
+                    });
+                    f.appendChild(result);
+                });
+                // sp.innerHTML = "Enter number";
+                // s.innerHTML = "submit";
+                // f.appendChild(sp);
+                // f.appendChild(i);
+                // f.appendChild(brk);
+                // f.appendChild(s);
+
+                //var n = document.getElementById("")
+
+                document.getElementsByTagName('body')[0].appendChild(f);
+            }
+        </script>
+    </body>
+</html>

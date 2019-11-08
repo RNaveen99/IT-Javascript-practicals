@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>stack</title>
+    </head>
+
+    <style>
+        table  {
+            border: 1px solid black;
+        }
+    </style>
+
+    <body>
+        
+        <input id = 'n' type="number"> <button onclick = "push()">push</button><br>         
+        <button onclick="pop()">pop</button> 
+        <br>
+        <table id = "tab" border="1px">
+          
+        </table>
+
+        <script>
+            let table = document.getElementById('tab');
+            function push() {
+                let tr = document.createElement('tr');
+                let td = document.createElement('td');
+                let n = Number(document.getElementById('n').value);
+                td.innerHTML = n;
+                tr.appendChild(td);
+                table.insertBefore(tr, table.firstChild);
+            }
+
+            function pop() {
+                let tr = table.firstChild;
+                table.removeChild(tr);
+            }
+        </script>
+    </body>
+</html>
